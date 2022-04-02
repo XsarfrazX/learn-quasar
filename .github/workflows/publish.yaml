@@ -12,8 +12,14 @@ jobs:
       - name: Change directory
         run: |
           cd quasar-project
+          pwd
+          ls
       - name: configure amplify
         uses: ambientlight/amplify-cli-action@0.3.0
+        run: |
+         echo "###########################################################################"
+         pwd
+         ls
         with:
           amplify_command: configure
           amplify_env: dev
