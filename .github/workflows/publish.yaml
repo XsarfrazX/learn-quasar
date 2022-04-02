@@ -16,13 +16,10 @@ jobs:
           ls
       - name: configure amplify
         uses: ambientlight/amplify-cli-action@0.3.0
-        run: |
-         echo "###########################################################################"
-         pwd
-         ls
         with:
           amplify_command: configure
           amplify_env: dev
+          project_dir: quasar-project
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -41,8 +38,9 @@ jobs:
           amplify_command: publish
           amplify_env: dev
           build_command: quasar build
-          source_dir: src 
-          distribution_dir: dist/spa
+          source_dir: quasar-project/src 
+          distribution_dir: quasar-project/dist/spa
+          project_dir: quasar-project
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
